@@ -143,6 +143,164 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get User Friends",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/:id/friends",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", ":id", "friends"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "user_id_here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"toUserId\": \"target_user_id_here\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friend-request",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friend-request"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pending Friend Requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friend-requests/pending",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friend-requests", "pending"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Sent Friend Requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friend-requests/sent",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friend-requests", "sent"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Accept Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friend-request/:requestId/accept",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friend-request", ":requestId", "accept"],
+              "variable": [
+                {
+                  "key": "requestId",
+                  "value": "request_id_here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Friend Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friend-request/:requestId/reject",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friend-request", ":requestId", "reject"],
+              "variable": [
+                {
+                  "key": "requestId",
+                  "value": "request_id_here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Friend",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/friends/:friendId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "friends", ":friendId"],
+              "variable": [
+                {
+                  "key": "friendId",
+                  "value": "friend_user_id_here"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },

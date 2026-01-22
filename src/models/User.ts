@@ -8,6 +8,8 @@ export interface IUser extends Document {
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
+  image?: string;
+  friends?: mongoose.Types.ObjectId[];
 }
 
 const userSchema = new Schema<IUser>(
@@ -28,6 +30,16 @@ const userSchema = new Schema<IUser>(
       type: String,
       trim: true,
     },
+    image: {
+      type: String,
+    },
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        default: [],
+      },
+    ],
   },
   {
     timestamps: true,
